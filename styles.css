@@ -72,6 +72,10 @@ img{
     }
 }
 
+@media screen and (max-width: 592px){
+
+} 
+
 /* Header Styles */
 header {
     position: fixed;
@@ -179,7 +183,7 @@ nav {
 
 .hero p {
     font-size: 1.2rem;
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
 }
 
@@ -270,17 +274,19 @@ section {
 .tm-midia{
     display: flex;
     align-items: center;
+    position: relative;
     gap: 0.5rem;
 }
 .tm-midia a{
     display: flex;
+    position: absolute;
     align-items: center;
+    top: 0;
+    right: 0;
     gap: 0.3rem;
     color: var(--terceary-color);
     text-decoration: none;
     font-style: normal;
-    margin-bottom: 5.8rem;
-    margin-inline-start: 1.8rem;
     transition: all 0.3s;
 }
 
