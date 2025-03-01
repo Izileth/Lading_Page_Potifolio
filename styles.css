@@ -108,6 +108,17 @@ img{
         font-size: 0.8rem;
         margin-bottom: 1rem;
     }
+    .cards-grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        padding: 1rem;
+    }
+    .whatsapp-btn{
+        padding: 0.8rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 2px;
+    }
 }
 
 /* Header Styles */
@@ -419,13 +430,20 @@ section {
 .section-title {
     text-align: center;
     margin-bottom: 3rem;
+    background-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-shift 8s linear infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Cards Grid */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    gap: 2rem;;
 }
 
 .card {
@@ -443,6 +461,10 @@ section {
 
 .ab-content{
     text-align: left;
+}
+.ab-content h3{
+    margin-block: 0.6rem;
+    font-size: 1.8rem;
 }
 .ab-info{
     display: flex;
@@ -466,6 +488,13 @@ section {
     padding: 0.2rem 1.0rem;
     text-align: center;
     border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.ab-info li:hover{
+    transform: translateY(-2px);
+    background-color: var(--secundary-color);
+    color: var(--primary-color);
 }
 
 /*Features*/
@@ -716,7 +745,6 @@ footer {
     background-color: var(--secundary-color); /* Cor oficial do WhatsApp */
     color: var(--primary-color);
     padding: 10px 15px;
-    border-radius: 10px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
@@ -744,7 +772,6 @@ footer {
     }
 
     .nav-links {
-        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -753,9 +780,73 @@ footer {
         padding: 1rem;
         flex-direction: column;
         text-align: center;
+        opacity: 0; /* Começa invisível */
+        transform: translateY(-10px); /* Desloca o menu para cima */
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Transição suave */
+        pointer-events: none; /* Impede interação quando o menu está invisível */
     }
-
+    
+    .nav-links ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-direction: column;
+    }
+    
     .nav-links.active {
-        display: flex;
+        opacity: 1; /* Torna o menu visível */
+        transform: translateY(0); /* Retorna o menu à posição original */
+        pointer-events: auto; /* Permite interação quando o menu está visível */
     }
+}
+/*Animações Fade*/
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Começa totalmente transparente */
+    }
+    to {
+        opacity: 1; /* Termina totalmente visível */
+    }
+}
+
+.fade-in {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(20px); /* Desloca o elemento para baixo */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Classe ativada quando o elemento está visível */
+.fade-in.visible {
+    opacity: 1; /* Torna-se visível */
+    transform: translateY(0); /* Volta à posição original */
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Começa totalmente visível */
+    }
+    to {
+        opacity: 0; /* Termina totalmente transparente */
+    }
+}
+
+.fade-out {
+    animation: fadeOut 2s ease-in-out; /* Duração de 2 segundos */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* Começa transparente */
+    }
+    50% {
+        opacity: 1; /* No meio da animação, fica visível */
+    }
+    100% {
+        opacity: 0; /* Termina transparente */
+    }
+}
+
+.fade-in-out {
+    animation: fadeInOut 4s ease-in-out infinite; /* Duração de 4 segundos e repete infinitamente */
 }

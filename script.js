@@ -17,6 +17,15 @@ mobileMenuBtn.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
+// Fechar menu ao clicar em um link
+const navLinksList = document.querySelectorAll(".nav-links a"); // Seleciona todos os links dentro do menu
+
+navLinksList.forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("active"); // Fecha o menu
+    });
+});
+
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -73,11 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
   typeEffect();
 });
 
+
 //Contato Whatsapp
 
 function criarLinkWhatsApp(numero, mensagem) {
-    const mensagemCodificada = encodeURIComponent(mensagem);
-    return `https://wa.me/${numero}?text=${mensagemCodificada}`;
+  const mensagemCodificada = encodeURIComponent(mensagem);
+  return `https://wa.me/${numero}?text=${mensagemCodificada}`;
 }
 
 // Exemplo de uso:
@@ -96,13 +106,15 @@ document.getElementById("whatsapp-link").href = link;
 
 //Envio do formulario
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
+document
+  .getElementById("contactForm")
+  .addEventListener("submit", function (event) {
     event.preventDefault(); // Impede o envio padrão do formulário
 
     // Captura os valores dos campos
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
 
     // Monta a mensagem que será enviada
     const whatsappMessage = `Olá, me chamo: ${name}\nEntro em contato pelo Email: ${email}\nE desejo saber: ${message}`;
@@ -111,11 +123,54 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     // Número de telefone para o qual a mensagem será enviada
-    const phoneNumber = '5591993961874'; // Substitua pelo número de telefone
+    const phoneNumber = "5591993961874"; // Substitua pelo número de telefone
 
     // Cria o link do WhatsApp
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
     // Abre o link no WhatsApp
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, "_blank");
+  });
+
+//Observador do Efeito Fade
+
+// Seleciona todos os elementos com a classe .fade-in
+const fadeElements = document.querySelectorAll(".fade-in");
+
+// Configurações do Intersection Observer
+const options = {
+  root: null, // Observa a viewport
+  rootMargin: "0px", // Sem margem adicional
+  threshold: 0.5, // Dispara quando 50% do elemento está visível
+};
+
+// Callback que será executada quando os elementos forem observados
+const callback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // Se o elemento estiver visível
+      entry.target.classList.add("visible"); // Adiciona a classe .visible
+      observer.unobserve(entry.target); // Para de observar o elemento
+    }
+  });
+};
+
+// Cria o Intersection Observer
+const observer = new IntersectionObserver(callback, options);
+
+// Observa cada elemento com a classe .fade-in
+fadeElements.forEach((element) => {
+  observer.observe(element);
+});
+
+//Abre o Link Para os Repositórios
+
+document.getElementById("github-repos").addEventListener("click", function (event) {
+  event.preventDefault(); // Impede o redirecionamento padrão
+
+  // URL do repositório
+  const repoUrl = "https://github.com/kawakawi/Lading_Page_Potifolio";
+
+  // Abre o repositório no navegador
+  window.open(repoUrl, "_blank");
 });
