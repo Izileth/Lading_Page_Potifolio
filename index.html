@@ -24,30 +24,56 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Online</div>
+            <div class="logo">Izileth</div>
             <button class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
-                <a href="#features">Features</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#contact">Contact</a>
-                <button id="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <ul>
+                    <li>
+                        <a href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#products">Products</a>
+                    </li>
+                    <li>
+                        <a href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a href="#testimonials">Testimonials</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                    <button id="theme-toggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </ul>
             </div>
         </nav>
     </header>
 
     <section id="home" class="hero">
         <div class="hr-content">
-            <h1>Welcome to my Porfifolio</h1>
-            <p>Discover amazing projects and expensive skills, developing by Izileth Noda<p>
-            <div class="hr-btns">
-                <button class="btn">Get Started</button>
+            <div class="hr-mid">
+                <div class="hr-ct-mid">
+                    <img src="./assets/img/Perfil/icon3.jpeg">
+                </div>
+            </div>
+            <div class="hr-ifm">
+                <h1>Hello, <span class="typ-text">I'm Izileth!</span><span class="typ-cursor"></span></h1>
+                <p>I'm a Full Stack Developer, with a passion for creating innovative and user-friendly solutions.</p>
+                <div class="hr-sc-li">
+                    <a href="https://github.com/Izileth" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/kaw%C3%A3-kleber-547547261/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:kawaklebersc@gmail.com?subject=Contato via Site&body=Olá,%0D%0A%0D%0AEu gostaria de entrar em contato para mais informações.%0D%0A%0D%0AAqui estão os detalhes:%0D%0A- Nome: [Seu Nome]%0D%0A- Telefone: [Seu Telefone]%0D%0A%0D%0AAtenciosamente,%0D%0A[Seu Nome]" target="_blank"><i class="fas fa-envelope"></i></a>
+                </div>
+                <div class="hr-btns">
+                    <button><span>See My Work</span></button>
+                </div>
             </div>
         </div>
     </section>
@@ -226,7 +252,7 @@
     <div class="bg-contact">
         <section id="contact">
             <div class="bg-form">
-                <form class="contact-form">
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" required>
@@ -242,13 +268,21 @@
                     <div class="ct-send">
                         <button type="submit" class="btn">Send Message</button>
                     </div>
-                </form>    
+                </form>
             </div>
         </section>
     </div>
 
+    <a id="whatsapp-link" class="whatsapp-btn " target="_blank">Contato WhatsApp</a>
     <footer>
         <p>&copy; 2025 Modern Website. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://github.com/Izileth"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/K4wA_C0rr3i4"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/izileth_vith?igsh=MWs4aDU5cTZkcDNjNA%3D%3D"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/kaw%C3%A3-kleber-547547261/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Izileth"><i class="fab fa-github"></i></a>
+        </div>
     </footer>
     <script src="script.js"></script>
 </body>
