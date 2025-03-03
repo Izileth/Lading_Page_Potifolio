@@ -452,10 +452,57 @@ section {
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px var(--shadow);
 }
+
 .card i{
     font-size: 1.4rem;
     margin-inline-end: 0.8rem;
     color: var(--primary-color);
+}
+
+/*Social*/
+.cd-sc{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.cd-sc-ci{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: all 0.3s ease;
+    gap: 0.4rem;
+}
+.cd-sc-ci a{
+    background-color: var(--primary-color);
+    color: var(--secundary-color);
+    border-radius: 50%;
+    padding: 0.8rem 0.1rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.cd-sc-ci a:hover{
+    background-color: var(--secundary-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    transform: translateY(-2px)
+}
+.cd-sc-ci i{
+    font-size: 1.0rem;
+    padding-inline-start: 0.8rem;
+    color: var(--secundary-color);
+    transition: all 0.3s ease;
+}
+.cd-sc-ci i:hover{
+    color: var(--primary-color);
+    background-color: var(--secundary-color);
+    transform: translateY(-2px);
 }
 /*About*/
 
