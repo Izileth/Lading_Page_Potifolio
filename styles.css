@@ -83,6 +83,10 @@ img{
         width: 80%;
         font-size: 1.5rem;
     }
+    .modal-content .md-t{
+        font-size: 0.8rem;
+        line-height: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -118,6 +122,39 @@ img{
         padding: 0.8rem 1rem;
         font-size: 0.8rem;
         border-radius: 2px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .ab-content .ab-info ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .ab-content .ab-info ul {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.8rem;
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 690px){
+    .ab-content .ab-info ul {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 548px) {
+    .ab-content .ab-info ul {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0;
+        margin: 0 auto;
     }
 }
 
@@ -163,12 +200,13 @@ nav {
 .nav-links ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.4rem;
 }
 .nav-links li{
     display: inline-block;
     position: relative;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out ;
 }
 .nav-links li::before{
     content: '';
@@ -177,7 +215,9 @@ nav {
     bottom: -2px;
     width: 100%;
     height: 2px;
-    background-color: var(--terceary-color);
+    display: inline-block;
+    background-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+    background-size: 400% 100%;
     border-radius: 2px;
     scale: 0 1;
     transform-origin: left;
@@ -187,15 +227,17 @@ nav {
 .nav-links li:hover::before{
     scale: 1 ;
 }
-
+.nav-links li:hover{
+    transform: translateY(-2px);
+}
 .nav-links a{
     color: var(--secundary-color);
     text-decoration: none;
     font-size: 1.1rem;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 .nav-links a:hover {
-    color: var(--terceary-color)
+    text-shadow:0px 0px 100px #ffffff;
 }
 
 #theme-toggle {
@@ -467,6 +509,16 @@ section {
     gap: 1rem;
     margin-bottom: 1rem;
 }
+.cd-sc-ct a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border-radius: 4px;
+}
 .cd-sc-ci{
     display: flex;
     justify-content: center;
@@ -521,7 +573,7 @@ section {
 .ab-info ul{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: 1fr;
     grid-gap: 0.4rem;
     list-style: none;
     padding: 0;
@@ -529,11 +581,17 @@ section {
 }
 .ab-info li{
     padding-block: 0;
-    font-size: 1.0rem;
+    font-size: 0.9rem;
     color: var(--secundary-color);
     background-color: var(--primary-color);
-    padding: 0.2rem 1.0rem;
+    padding: 0.2rem 0.4rem;
+    width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
     border-radius: 6px;
     transition: all 0.3s ease;
 }
@@ -541,6 +599,18 @@ section {
 .ab-info li:hover{
     transform: translateY(-2px);
     background-color: var(--secundary-color);
+    color: var(--primary-color);
+}
+.ab-info .icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.0rem;
+    color: var(--secundary-color);
+    transition: all 0.3s ease;
+}
+
+.ab-info li .icon:hover{
     color: var(--primary-color);
 }
 
@@ -556,7 +626,9 @@ section {
     width: 100%;
     object-fit: cover;
 }
+
 /* Testimonials */
+
 .testimonial {
     text-align: center;
     padding: 2rem;
@@ -575,23 +647,7 @@ section {
     position: relative;
     gap: 0.5rem;
 }
-.tm-midia a{
-    display: flex;
-    position: absolute;
-    align-items: center;
-    top: 0;
-    right: 0;
-    gap: 0.3rem;
-    color: var(--terceary-color);
-    text-decoration: none;
-    font-style: normal;
-    transition: all 0.3s;
-}
 
-.tm-midia a:hover{
-    color: var(--primary-color);
-    transform: scale(1.05);
-}
 .tm-info{
     font-size: 1.0rem;
     display: flex;
@@ -600,40 +656,162 @@ section {
     align-items: start;
     margin-inline: 0.6rem;
 }
+.tm-info h3{
+    font-size: 1.2rem;
+}
+
+
+.testimonial.card {
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    max-height: 400px; 
+}
+
+.testimonial.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+.tm-midia a[aria-label="Compartilhar depoimento"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 36px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    color: #000;
+}
+
+.tm-midia a[aria-label="Compartilhar depoimento"]:hover {
+    color: #000;
+    transform: translateY(-4px);
+}
+
+/* Tooltip de compartilhamento */
+.share-tooltip {
+    position: absolute;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    opacity: 0;
+    animation: fadeInOut 2s ease forwards;
+    pointer-events: none;
+}
+
+.share-tooltip::after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 0 8px 8px 8px;
+    border-style: solid;
+    border-color: transparent transparent #333 transparent;
+}
+
+.tm-social {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.tm-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.tm-social a:hover {
+    transform: scale(1.1);
+}
+
+.tm-social a[aria-label="Twitter/X"] {
+    color: #fff;
+}
+
+.tm-social a[aria-label="Facebook"] {
+    color: #fff;
+}
+
+.tm-social a[aria-label="Tumblr"] {
+    color: #fff;
+}
+
+
+.social-tooltip {
+    position: absolute;
+    background-color: #ff00cc;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+    pointer-events: none;
+}
+
 .tm-btns{
     display: flex;
-    gap: 0.5rem;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-block: 0.8rem;
 }
-.tm-social a{
-    text-decoration: none;
-    color: var(--secundary-color);
+
+.tm-btns .btn, .read-more-btn {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     background-color: var(--primary-color);
-    padding: 0.6rem 0.9rem;
-    text-align: center;
-    border: none;
-    border-radius:50%;
+    border: 1px solid #fff;
+    color: var(--secundary-color);
+    padding: 8px 15px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
-
+    font-weight: 500;
+    margin: 10px 0;
 }
 
-.tm-social a:hover{
-    background-color: #ff5000;
+.tm-btns .btn:hover, .read-more-btn:hover {
+    background-color: var(--secundary-color);
+    border-color: var(--primary-color);
 }
-.tm-btns button{
-    background-color: var(--primary-color);
-    color: var(--secundary-color);
-    padding: 0.7rem 1.2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+
+.highlight-btn {
+    animation: pulse-highlight 3s ease;
 }
-.tm-content{
-    text-align: left;
-    margin-top: 0.8rem;
+
+@keyframes pulse-highlight {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(66, 133, 244, 0); }
+    50% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0.9); }
 }
+
+
 /* Contact Form */
 .bg-contact {
     background-image: url('./assets/img/backrground/Bg_img1\ \(1\).jpeg');
@@ -643,28 +821,28 @@ section {
     padding: 2rem;
     width: 100%;
     height: auto;
-    position: relative; /* Adicione isso para conter os pseudo-elementos */
-    overflow: hidden; /* Garante que os pseudo-elementos não vazem */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .bg-contact::after {
     content: "";
-    position: absolute; /* Alterado para absolute */
+    position: absolute; 
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Ajuste a altura conforme necessário */
+    height: 50%; 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
     z-index: 1;
 }
 
 .bg-contact::before {
     content: "";
-    position: absolute; /* Alterado para absolute */
+    position: absolute; 
     top: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Ajuste a altura conforme necessário */
+    height: 50%; 
     background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
     z-index: 1;
 }
@@ -753,6 +931,7 @@ section {
     justify-content: center;
     align-items: center;
 }
+
 /* Footer */
 footer {
     background-color: var(--secundary-color);
@@ -763,7 +942,7 @@ footer {
 
 .social-media{
     display: flex;
-    gap: 0.4rem;
+    gap: 0.8rem;
     justify-content: center;
     align-items: center;
     margin-top: 0.2rem;
@@ -781,27 +960,198 @@ footer {
     transform: translateY(-8px);
 }
 
-/*Whatsapp Button*/
-
 .whatsapp-btn {
+    display: none;
     position: fixed;
     bottom: 14px;
     right: 24px;
     z-index: 99;
-    display: inline-block;
-    background-color: var(--secundary-color); /* Cor oficial do WhatsApp */
+    background-color: var(--secundary-color);
     color: var(--primary-color);
     padding: 10px 15px;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.3s ease;
-    z-index: 10;
+    border-radius: 50px;
+    cursor: pointer;
 }
 
 .whatsapp-btn:hover {
-    background-color: #128c1a; /* Cor mais escura ao passar o mouse */
+    background-color: #128c1a;
     transform: scale(1.05);
 }
+
+.whatsapp-message {
+    position: fixed;
+    bottom: 70px;
+    right: 24px;
+    background: #128c1a;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    display: none;
+    opacity: 0;
+    transition: opacity 1.3s ease-in-out;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.whatsapp-message.active {
+    display: block;
+    opacity: 1;
+    z-index: 10;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal-content {
+    background: var(--primary-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+}
+.modal-content .md-t{
+    font-size: 2.0rem;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    background-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+/* Fechar botão */
+.close {
+    position: absolute;
+    top: 1px;
+    right: 15px;
+    font-size: 24px;
+    background-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    cursor: pointer;
+}
+
+/* Campo de Comentário */
+#comment-input {
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+    border: none;
+    border-radius: 0.2rem;
+    background: transparent;
+    resize: vertical;
+    color: #ff00cc;
+    transition: border 0.6s ease-in-out;
+    outline: none; 
+
+}
+
+#comment-input:hover{
+    border: 1px solid #ff00cc;
+}
+
+/* Botão de Enviar */
+#send-comment {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background-image: linear-gradient(90deg, #ff00cc, #3333ff, #00ffcc, #ffcc00, #ff00cc);
+    background-size: 400% 100%;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-image 0.3 ease;
+
+}
+
+#send-comment:hover {
+    background-image: linear-gradient(90deg, #3333ff, #00ffcc, #ffcc00, #ff00cc, #ff00cc);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Mensagem de Confirmação */
+#comment-message {
+    background: #128c1a;
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Exibição da mensagem */
+#comment-message.show {
+    opacity: 1;
+}
+
+/* Estilo para o tooltip de feedback */
+.share-tooltip {
+    position: absolute;
+    background-color: #ff00cc;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    opacity: 0;
+    animation: fadeInOut 2s ease;
+    pointer-events: none;
+}
+
+/* Seta do tooltip */
+.share-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ff00cc transparent transparent transparent;
+}
+
+/* Animação para o tooltip */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
 
 /* Mobile Menu */
 .mobile-menu-btn {
@@ -850,50 +1200,50 @@ footer {
 
 @keyframes fadeIn {
     from {
-        opacity: 0; /* Começa totalmente transparente */
+        opacity: 0; 
     }
     to {
-        opacity: 1; /* Termina totalmente visível */
+        opacity: 1; 
     }
 }
 
 .fade-in {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(20px); /* Desloca o elemento para baixo */
+    opacity: 0; 
+    transform: translateY(20px); 
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-/* Classe ativada quando o elemento está visível */
+
 .fade-in.visible {
-    opacity: 1; /* Torna-se visível */
-    transform: translateY(0); /* Volta à posição original */
+    opacity: 1; 
+    transform: translateY(0); 
 }
 
 @keyframes fadeOut {
     from {
-        opacity: 1; /* Começa totalmente visível */
+        opacity: 1; 
     }
     to {
-        opacity: 0; /* Termina totalmente transparente */
+        opacity: 0; 
     }
 }
 
 .fade-out {
-    animation: fadeOut 2s ease-in-out; /* Duração de 2 segundos */
+    animation: fadeOut 2s ease-in-out; 
 }
 
 @keyframes fadeInOut {
     0% {
-        opacity: 0; /* Começa transparente */
+        opacity: 0; 
     }
     50% {
-        opacity: 1; /* No meio da animação, fica visível */
+        opacity: 1; 
     }
     100% {
-        opacity: 0; /* Termina transparente */
+        opacity: 0; 
     }
 }
 
 .fade-in-out {
-    animation: fadeInOut 4s ease-in-out infinite; /* Duração de 4 segundos e repete infinitamente */
-}
+    animation: fadeInOut 4s ease-in-out infinite;
+}    
