@@ -494,3 +494,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 });
+
+// Sistema de Dowload do Curriculo
+function baixarPDF() {
+  const link = document.createElement('a');
+  link.href = 'https://drive.google.com/uc?export=download&id=1XAEXbLsOEJu8W6To31PJdYAxoIMXc2U4';
+  link.download = 'meu-arquivo.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
