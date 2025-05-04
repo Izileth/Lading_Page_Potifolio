@@ -498,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // Sistema de Dowload do Curriculo
 function baixarPDF() {
   const link = document.createElement('a');
-  link.href = 'https://drive.google.com/uc?export=download&id=1XAEXbLsOEJu8W6To31PJdYAxoIMXc2U4';
+  link.href = 'https://drive.google.com/uc?export=download&id=1VvptF8I5raMJzeNZv626yXhwtdyf-jIs';
   link.download = 'meu-arquivo.pdf';
   document.body.appendChild(link);
   link.click();
