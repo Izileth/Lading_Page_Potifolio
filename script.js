@@ -55,7 +55,7 @@ button.addEventListener("click", () => {
 
 // Sistema para o Efeito de Texto Sendo Escritto
 document.addEventListener("DOMContentLoaded", function () {
-  const text = "I'm Izileth";
+  const text = "I'm Kawã";
   const typingText = document.querySelector(".typ-text");
   let charIndex = 0;
   let isDeleting = false;

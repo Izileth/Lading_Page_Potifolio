@@ -52,6 +52,7 @@ img{
     h3{
         font-size: 2rem;
     }
+
     .bg-contact {
         width: 100%;
         max-width: 100vh;
@@ -190,6 +191,16 @@ nav {
     color: transparent;
     animation: gradient-shift 8s linear infinite;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.logo .logo-ic{
+    width: 75px;
+    height: 100%;
+}
+@media (max-width: 768px) {
+    .logo{
+        width: 50px;
+        height: 50px;
+    }
 }
 
 .nav-links {
